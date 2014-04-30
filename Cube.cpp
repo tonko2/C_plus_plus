@@ -1,10 +1,5 @@
 
-サイコロのライブラリ
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
+//サイコロのライブラリ
 int dx[] = {0,1,0,-1};
 int dy[] = {-1,0,1,0};
 
@@ -13,12 +8,7 @@ public:
    int t,s,e,n,w,b; //t=top,s=south,e=east,n=north,w=west,b=bottom
    Dice(){}
    Dice(int _t, int _s, int _e, int _n, int _w, int _b){
-       t = _t;
-       s = _s;
-       e = _e;
-       n = _n;
-       w = _w;
-       b = _b;
+       t = _t, s = _s,e = _e,n = _n,w = _w,b = _b;
    }
    //前に転がす
    Dice rotate_front(){
@@ -52,7 +42,6 @@ public:
 };
 
 vector<Dice>all;
-
 //ここで二つの組み合わせ(今回はfrontとsouth)によってDiceが得られる
 Dice getDice(int top, int south){
    for(int i=0; i<24; i++){
@@ -61,7 +50,6 @@ Dice getDice(int top, int south){
       }
    }
 }
-
 
 //ここで２４種類の状態を保存
 void allState(){
@@ -76,9 +64,4 @@ void allState(){
       if(i == 3) dice = dice.rotate_right();
       if(i == 4) dice = dice.rotate_right().rotate_right();
    }
-}
-
-int main(){
-   allState();
-   return 0;
 }
