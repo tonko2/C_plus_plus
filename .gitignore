@@ -1,0 +1,8 @@
+
+#移動したくないファイル
+/STL/a.out
+/Library/a.out
+/Library/Graph/a.out
+/Library/Math/a.out
+/Library/Tree/a.out
+/Library/Flow/a.out
