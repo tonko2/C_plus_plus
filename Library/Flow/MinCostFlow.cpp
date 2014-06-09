@@ -24,7 +24,7 @@ int V;
 vector<edge> G[MAX_V]; //グラフの隣接リスト表現
 int h[MAX_V]; //ポテンシャル
 int dist[MAX_V]; //最短距離
-int prevv[MAX_V]; //直前の頂点と辺
+int prevv[MAX_V], preve[MAX_V]; //直前の頂点と辺
 
 // fromからtoへ向かう容量cap, コストcostの辺をグラフに追加する
 void add_edge(int from, int to, int cap, int cost){
@@ -59,7 +59,28 @@ int min_cost_flow(int s, int t, int f){
 	    }
 	 }
       }
+      
+      if(dist[t] == INF) return -1;
+      
+      for(int v=0; v<V; v++) h[v] += dist[v];
+
+      //s-t間最短路に沿って目一杯流す
+      int d = f;
+      for(int v=t; v != s; v = prevv[v]){
+	 d = min(d,G[prevv[v]][preve[v]].cap);
+      }
+
+      f -= d;
+
+      res += d * h[t];
+
+      for(int v=t; v != s; v=prevv[v]){
+	 edge &e = G[prevv[v]][preve[v]];
+	 e.cap -= d;
+	 G[v][e.rev].cap += d;
+      }
    }
+   return res;
 }
 int main(){
    
