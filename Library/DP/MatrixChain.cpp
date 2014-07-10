@@ -43,17 +43,6 @@ int main(){
         for (int i=1; i<=size-j; i++){
             for (int k=i+1; k<=i+j; k++){
 	       int cost = M[i][k-1] + M[k][i+j] + R[i]*R[k]*R[i+j+1];
-
-	       /*
-	       cout << "i = " << i << " k = " << k << " i+j+1 = " << i+j+1 << endl;
-	       cout << "left = " << M[i][k-1] << endl;
-	       cout << "bottom = " << M[k][i+j] << endl;
-	       cout << "R[i] = " << R[i] << " R[k] = " << R[k] << " R[i+j+1] = " <<
-		  R[i+j+1] << endl;
-	       cout << "cost = " << cost << endl;
-	       cout << endl;
-	       */
-	       
                 if(M[i][i+j] > cost){
 		   M[i][i+j] =  cost;
 		   S[i][i+j] = k;
