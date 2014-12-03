@@ -15,7 +15,7 @@ bool f(double x){
 int main(){
 
    double left = 0.0, right = 1e10;
-   for(int i=0; i<100; i++){
+   for(int i=0; i<500; i++){
 	  double t1 = (2 * left + right) / 3.0;
 	  double t2 = (left + 2 * right) / 3.0;
 	  if(f(t1) < f(t2)) right = t2;
