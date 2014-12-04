@@ -2,6 +2,13 @@
 #include <algorithm>
 using namespace std;
 
+//sは元の文字列, tは変える文字列, rは変えたい文字列
+string myReplace(string s, string t, string r){
+   if(s.find(t) == string::npos) return s;
+   int pos = s.find(t);
+   return s.replace(pos,t.size(),r);
+}
+
 int main(){
    string s = "aiueo";
    int length = 2;
