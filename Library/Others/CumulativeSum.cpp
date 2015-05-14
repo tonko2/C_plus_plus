@@ -25,6 +25,11 @@ int main(){
 
    int ans = 0;
 
+
+   /*
+	 (j,i) から (l,k)の長方形の和を求める
+   */
+   
    for(int i=1; i<=n; i++){
 	  for(int j=1; j<=m; j++){
 		 for(int k=i; k<=n; k++){
