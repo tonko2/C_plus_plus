@@ -28,6 +28,19 @@ int main(){
    }
 
    cout << ans << endl;
+
+
+
+   /*
+	 高速なLIS
+	 O(N*logN)
+   */
+
+   vector<int> dp2(N+10,INF);
+   for(int i=0; i<N; i++)
+	  *lower_bound(dp2.begin(),dp2.end(),a[i]) = a[i];
+
+   cout << lower_bound(dp2.begin(),dp2.end(),INF) - dp2.begin() << endl;
    
    return 0;
 }
