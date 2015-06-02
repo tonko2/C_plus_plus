@@ -5,7 +5,18 @@ using namespace std;
 
 string str;
 int pos;
- 
+
+/*
+BNF
+
+<expr> ::= <term> | <term> (+ | -) <term>
+<term> ::= <factor> | <factor> (* | /) <factor>
+<factor> ::= <number> | ( <expr> )
+<number> ::= 1つ以上の数字
+
+*/
+
+
 int exp(void);
 int term(void);
 int factor(void);
