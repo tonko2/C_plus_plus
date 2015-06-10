@@ -26,7 +26,7 @@ int dp[10001][101][2];
 
 int main(){
    cin >> D >> N;
-   memset(dp,sizeof(dp),0);
+   memset(dp,0,sizeof(dp));
    int len = N.size();
 
    dp[0][0][0] = 1;
