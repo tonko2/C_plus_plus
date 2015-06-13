@@ -9,9 +9,6 @@ typedef pair<int,int> P;
 
 const int DAT_SIZE = (1<<18)-1;
 int N,Q;
-int A[101];
-
-int L[101], R[101], X[101];
 
 //セグメント木
 ll data[DAT_SIZE], datb[DAT_SIZE];
@@ -28,6 +25,31 @@ void add(int a, int b, int x, int k, int l, int r){
    }
 }
 
+// [a,b)の和を計算する
+// kは節点の番号で、区間[l,r)に対応する
+ll sum(int a, int b, int k, int l, int r){
+   if(b <= l || r <= a) return 0;
+   else if(a <= l && r <= b) return data[k] * (r-l) + datb[k];
+   else {
+	  ll res = (min(b,r) - max(a,l)) * data[k];
+	  res += sum(a,b,k*2+1,l,(l+r)/2);
+	  res += sum(a,b,k*2+2,(l+r)/2,r);
+	  return res;
+   }
+}
+
+
+
+void solve(){
+   
+   //[0,3)の範囲に4を足す
+   add(0,3,4,0,0,N);
+
+   //[0,3)の範囲の和を計算する
+   cout << sum(0,3,0,0,N) << endl;
+
+   
+}
 int main(){
    return 0;
 }
