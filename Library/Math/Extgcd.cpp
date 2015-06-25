@@ -1,5 +1,5 @@
 
-ax + by = gcd(a,b) のxとyを求める
+//ax + by = gcd(a,b) のxとyを求める
    
 int extgcd(int a, int b, int &x, int &y){
    int d = a;
